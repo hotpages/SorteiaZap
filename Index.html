@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bingo de WhatsApp</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="app">
+        <header>
+            <h1>Bingo para WhatsApp</h1>
+        </header>
+
+        <main>
+            <section id="creation-section">
+                <h2>Crie um Novo Sorteio</h2>
+                <p>Crie uma sala de bingo e compartilhe o link com seus amigos.</p>
+                <button id="create-draw-btn">Criar Sorteio</button>
+                <div id="new-draw-links" class="hidden">
+                    <h3>Sorteio Criado!</h3>
+                    <p>🔗 **Envie este link para os jogadores:**</p>
+                    <input type="text" id="player-link" readonly>
+                    <p>🔑 **Guarde este link de administrador para você:**</p>
+                    <input type="text" id="admin-link" readonly>
+                </div>
+            </section>
+
+            <section id="join-section" class="hidden">
+                <h2>Entrar no Sorteio</h2>
+                <form id="join-form">
+                    <input type="text" id="player-name" placeholder="Seu Nome" required>
+                    <input type="tel" id="player-phone" placeholder="Seu Telefone (WhatsApp)" required>
+                    <button type="submit">Pegar minha cartela</button>
+                </form>
+            </section>
+
+            <section id="game-section" class="hidden">
+                <div id="drawn-numbers-container">
+                    <h2>Números Sorteados</h2>
+                    <div id="drawn-numbers-list"></div>
+                </div>
+                <div id="card-container">
+                    <h2>Sua Cartela</h2>
+                    <div id="bingo-card"></div>
+                </div>
+            </section>
+
+            <section id="admin-section" class="hidden">
+                <h2>Painel do Administrador</h2>
+                <button id="draw-number-btn">Sortear Próximo Número</button>
+                <div id="admin-drawn-numbers-container">
+                    <h3>Números já sorteados:</h3>
+                    <div id="admin-drawn-numbers-list"></div>
+                </div>
+            </section>
+        </main>
+        
+        <div id="loader" class="hidden"></div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-functions.js"></script>
+    
+    <script src="app.js"></script>
+</body>
+</html>
